@@ -2,9 +2,6 @@
 --main-bg-color: pink;
 --main-text-color: rgb(236, 92, 236); 
 --main-text-color: white;
---heading-color:  hotpink;
---button-color: lightblue;
-
 }
 
 body {
@@ -22,6 +19,12 @@ header {
     align-items: center;
 }
 
+button {
+    color: purple;
+    background-color: lightblue;
+    border-color: aqua;
+
+}
 h1 {
     color: hotpink;
     font-family: Georgia, 'Times New Roman', Times, serif;

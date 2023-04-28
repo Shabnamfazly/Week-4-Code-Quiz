@@ -51,7 +51,7 @@ function displayMessage (msg) {
    Message.textContent = msg;
 
    setTimeout(function () {
-      message.textContent = " ";
+      Message.textContent = " ";
    }, 1000);
 }
 
