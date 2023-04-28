@@ -1,0 +1,63 @@
+:root {
+--main-bg-color: pink;
+--main-text-color: rgb(236, 92, 236); 
+--main-text-color: white;
+--heading-color:  hotpink;
+--button-color: lightblue;
+
+}
+
+body {
+    background-color: var(--main-bg-color);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    height: 1vh;
+
+}
+header {
+    width: 76%;
+    height:100px;
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    color: hotpink;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+p {
+    color: lavender;
+    font-family: cursive;
+    font-weight: bolder;
+    font-size: 25px;
+
+}
+
+main {
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 2.0;
+}
+
+ 
+ @media screen and (max-width: 640px) {
+ 
+    body {
+           min-width: 640px;
+       }
+  
+   #wrapper {
+       position: absolute;
+       left: 10%;
+   }
+     a {
+         margin-left: 10%;
+     }
+
+ }
+
+

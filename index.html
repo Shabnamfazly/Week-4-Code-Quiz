@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Quiz</title>
-    <link rel="stylesheet" href="/assets/css/reset.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
   
 </head>
 <body>
@@ -14,23 +13,38 @@
         <div id="highscores">
             <a href="/scores.html">View High Scores</a>
         </div>
-        <div id="timer"></div>
+        <div id="Timer"></div>
     </header>
     <main>
         <div id="Welcome">
             <h1>Welcome to the Code Quiz! Can you answer all the questions correctly?</h1>
+            <p id="instruction">
+                Try to answer the following questions within the time limit. </p>
             <button id="BeginQuiz" class="button"> Begin Quiz </button>
         </div>
-        <div id="quiz" class="hidden">
-            <div id="questions">
+        <div id="Quiz" class="hidden">
+            <div id="Questions">
+
            </div>
-           <div id="options">
+           <div id="Options">
+
             </div>
-          <div id="message">
+          <div id="Message">
+
            </div>
-           
+
+        </div>
+        <div id="results" class="hidden">
+            <div id="Summary"></div>
+            <button id="ViewScores" class="button">View Highscores</button>
+            <input type="text" id="name" placeholder="Enter your name" />
+            <button id="SaveScore" class="button">Save Score</button>
+            <button id="PlayAgain" class="button">Take Quiz Again</button>
         </div>
     </main>
     
 </body>
+<script src="./assets/js/questions.js"></script>
+<script src="./assets/js/quiz.js"></script>
+
 </html>
