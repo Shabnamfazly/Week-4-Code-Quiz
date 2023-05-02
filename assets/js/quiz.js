@@ -18,14 +18,20 @@ function stopGame (e) {
     clearInterval(countdownTimer);
     Timer.textContent = ""
     Quiz.style.display = 'none';
-    Results.style.display = 'flex'
+    Results.style.display = 'block'
    Summary.textContent = "Your final score is:" + scores;
 
 }
  function onSaveScore (e) {
     var name = document.getElementById("name").value
     if (name !== ""){
-      localStorage.setItem(initials,scores)
+      var storedScores = JSON.parse(localStorage.getItem("storedScores"))|| []
+      var userScore = {
+         name: name,
+         scores: scores
+      }
+      storedScores.push(userScore)
+      localStorage.setItem("storedScores",JSON.stringify(storedScores))
       document.getElementById("name").value = "";
     }
     }
@@ -33,30 +39,9 @@ function onViewScores (e) {
    window.location.href = 'scores.html';
 
 }
-function onSelectAnswer (e) {
-   var rightAnswer = questions[currentQuestion].answer;
-   var userAnswer = e.target.textContent;
 
-   if (rightAnswer === userAnswer) {
-      scores++ ;
-      displayMessage ('That Is Correct! Well Done.')
-   } else{
-      scores--;
-      displayMessage ('That Is Incorrect :(')
-   }
-   displayQuestion();
-}
-
-function displayMessage (msg) {
-   Message.textContent = msg;
-
-   setTimeout(function () {
-      Message.textContent = " ";
-   }, 1000);
-}
 
 function displayQuestion() {
-   currentQuestion++;
 
    console.log('The current question is'+ currentQuestion);
 
@@ -68,13 +53,18 @@ if (currentQuestion >= questions.length) {
 
 
 Options.innerHTML = "";
+console.log(questions.choices)
+Quiz.style.display = 'block';
+var questionsEl = document.getElementById("Questions")
+questionsEl.textContent = questions[currentQuestion].title
 
-for (var i = 0; i< questions.choices.length; i++) {
+var answerOptions = questions[currentQuestion].choices
+for (var i = 0; i< answerOptions.length; i++) {
+console.log(answerOptions)
+   var option = document.createElement ("li");
+   option.textContent = answerOptions[i];
 
-   var option = document.createElement ("div");
-   option.textContent = questions.choices[i];
-   option.onclick = onSelectAnswer;
-   option.classList.add.apply("options");
+   option.classList.add("options");
    
    Options.appendChild(option);
    option.classList.add("options");
@@ -82,7 +72,51 @@ for (var i = 0; i< questions.choices.length; i++) {
    Options.appendChild(option);
 
 }
+
 }
+Options.addEventListener("click",function(e){
+   var userAnswer = e.target
+
+   if (userAnswer.matches("li")){
+      onSelectAnswer(userAnswer.textContent)
+   }
+})
+function onSelectAnswer(userAnswer){
+   var rightAnswer = questions[currentQuestion].answer;
+      
+   console.log(rightAnswer,userAnswer)
+      if (rightAnswer === userAnswer) {
+         scores++ ;
+         displayMessage ('That Is Correct! Well Done.')
+      } else{
+         scores--;
+         displayMessage ('That Is Incorrect :(')
+      }
+      currentQuestion++
+      if (questions.length > currentQuestion) {
+         displayQuestion()
+
+      } else {
+         setTimeout(function(){
+       window.location.href = "scores.html"
+         },500)
+      }
+
+}
+      
+  
+
+
+
+
+function displayMessage (msg) {
+   Message.textContent = msg;
+
+   setTimeout(function () {
+      Message.textContent = " ";
+   }, 1000);
+}
+
 
 function onBeginQuiz () {
 

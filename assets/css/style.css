@@ -46,7 +46,10 @@ main {
     line-height: 2.0;
 }
 
- 
+#Results {
+    display: none;
+
+}
  @media screen and (max-width: 640px) {
  
     body {
