@@ -31,10 +31,18 @@ function onSaveScore(e) {
     storedScores.push(userScore);
     localStorage.setItem("storedScores", JSON.stringify(storedScores));
     document.getElementById("name").value = "";
-    //  SAVING SCORE TAKE YOU TO SCORES.HTML
+    
     window.location.href = "scores.html";
   }
 }
+function onClear() {
+   console.log("scores cleared");
+   var storedScores = JSON.parse(localStorage.getItem("storedScores"));
+   storedScores = [];
+   localStorage.setItem("storedScores", JSON.stringify(storedScores));
+ 
+   window.location.href = "scores.html";
+ }
 function onViewScores(e) {
   window.location.href = "scores.html";
 }
@@ -81,7 +89,7 @@ function onSelectAnswer(userAnswer) {
   if (questions.length > currentQuestion) {
     displayQuestion();
   } else {
-    // THIS WAS PREVIOUSLY REDIRECTING YOU SO YOU COULDNT SAVE NAME
+    
     stopGame();
   }
 }

@@ -9,6 +9,7 @@ function onClearHighscores(e) {
     console.log("clearing-highscores")
 
 }
+
 var storedScores = JSON.parse(localStorage.getItem("storedScores"))
 console.log(storedScores)
 for (var i = 0; i < storedScores.length; i++) {
