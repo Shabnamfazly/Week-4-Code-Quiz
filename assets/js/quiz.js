@@ -13,6 +13,7 @@ var secondsLeft = 0;
 var scores = 0;
 var currentQuestion = 0;
 var countdownTimer;
+
 function stopGame(e) {
   clearInterval(countdownTimer);
   Timer.textContent = "";
@@ -100,7 +101,7 @@ function displayMessage(msg) {
   }, 1000);
 }
 function onBeginQuiz() {
-  secondsLeft = 100;
+  secondsLeft = 60;
   currentQuestion = 0;
   scores = 0;
   countdownTimer = setInterval(function () {
@@ -116,6 +117,7 @@ function onBeginQuiz() {
   Quiz.style.display = "none";
   displayQuestion();
 }
+
 beginQuiz.addEventListener("click", onBeginQuiz);
 saveScore.addEventListener("click", onSaveScore);
 viewScores.addEventListener("click", onBeginQuiz);

@@ -1,14 +1,9 @@
 var scoresheet = document.getElementById("scoresheet")
 var playAgain = document.getElementById("PlayAgain")
-var clearHighscores = document.getElementById("clear-btn")
+
 
 function onPlayAgain(){
    window.location.href = 'index.html';
-}
-function onClearHighscores(e) {
-    console.log("clearing-highscores")
-
-}
 
 var storedScores = JSON.parse(localStorage.getItem("storedScores"))
 console.log(storedScores)
@@ -21,5 +16,3 @@ for (var i = 0; i < storedScores.length; i++) {
 
     scoresheet.appendChild(result);
 }
-backtoQuiz.addEventListener("click", onBackToQuiz);
-clearHighscores.addEventListener("click", onClearHighscores);
