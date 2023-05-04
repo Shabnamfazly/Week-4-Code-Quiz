@@ -36,14 +36,7 @@ function onSaveScore(e) {
     window.location.href = "scores.html";
   }
 }
-function onClear() {
-   console.log("scores cleared");
-   var storedScores = JSON.parse(localStorage.getItem("storedScores"));
-   storedScores = [];
-   localStorage.setItem("storedScores", JSON.stringify(storedScores));
- 
-   window.location.href = "scores.html";
- }
+
 function onViewScores(e) {
   window.location.href = "scores.html";
 }
